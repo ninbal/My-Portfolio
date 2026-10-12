@@ -1,0 +1,7 @@
+import { BriefcaseBusiness } from 'lucide-react';
+import { profile } from '@/data/portfolio';
+import { SectionHeading } from '@/components/ui/section-heading';
+import { Reveal } from '@/components/ui/reveal';
+export function Experience() {
+  return <section id="experience" className="section-space container-shell"><SectionHeading number="03" label="EXPERIENCE" title="Where I’ve worked." /><Reveal className="grid gap-8 md:grid-cols-[0.8fr_1.2fr]"><p className="pt-1 text-sm text-muted">July 2024 — Present</p><div className="relative border-l border-border pl-8 pb-5"><span className="absolute -left-[6px] top-2 size-[11px] rounded-full border-2 border-background bg-accent" /><div className="flex items-start justify-between gap-5"><div><h3 className="text-2xl font-medium tracking-tight">Software Engineer</h3><p className="mt-2 text-sm text-violet-200">{profile.employer}</p></div><BriefcaseBusiness size={22} className="text-muted" aria-hidden="true" /></div><p className="mt-6 leading-8 text-muted">Developing and maintaining enterprise web applications, primarily focusing on frontend development while contributing to backend features, API integrations, multilingual interfaces, and complex document workflows.</p><div className="mt-6 flex flex-wrap gap-2"><span className="tag">Enterprise applications</span><span className="tag">Frontend & backend</span></div></div></Reveal></section>;
+}

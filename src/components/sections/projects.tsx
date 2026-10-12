@@ -1,0 +1,9 @@
+import Link from 'next/link';
+import { ArrowUpRight, LockKeyhole } from 'lucide-react';
+import { projects } from '@/data/portfolio';
+import { SectionHeading } from '@/components/ui/section-heading';
+import { ProjectIllustration } from '@/components/ui/project-illustration';
+import { Reveal } from '@/components/ui/reveal';
+export function Projects() {
+  return <section id="projects" className="section-space container-shell"><SectionHeading number="02" label="FEATURED WORK" title="Selected Projects" /><div className="space-y-8">{projects.map((project, index) => <Reveal key={project.slug}><article className="project-card group grid overflow-hidden rounded-2xl border border-border bg-surface/40 lg:grid-cols-2"><div className={`flex items-center justify-center ${index === 1 ? 'lg:order-2' : ''}`}><ProjectIllustration kind={project.kind} /></div><div className="flex flex-col p-7 sm:p-10"><div className="mb-5 flex items-center gap-3 text-[10px] tracking-widest text-muted"><span className="text-accent">PROFESSIONAL PROJECT</span><span> / </span><span>{project.year}</span></div><h3 className="text-2xl leading-snug font-medium tracking-tight sm:text-[28px]">{project.title}</h3><p className="mt-4 text-sm leading-7 text-muted">{project.summary}</p><div className="mt-6 flex flex-wrap gap-2">{project.technologies.map(tech => <span className="tag" key={tech}>{tech}</span>)}</div><div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"><span className="flex items-center gap-1.5 text-[10px] text-muted"><LockKeyhole size={11} aria-hidden="true" />Private / Proprietary Project</span><Link href={`/projects/${project.slug}`} className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-violet-200 hover:text-white">View case study<ArrowUpRight size={17} aria-hidden="true" /><span className="sr-only">: {project.title}</span></Link></div></div></article></Reveal>)}</div></section>;
+}
