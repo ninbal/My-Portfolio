@@ -13,20 +13,6 @@ npm run dev
 
 Open http://localhost:3000. Copy `.env.example` to `.env.local` and set the production URL when known. Geist is bundled locally with its SIL Open Font License in `public/fonts/`; builds do not need Google Fonts access. Font source: [Vercel’s Geist repository](https://github.com/vercel/geist-font).
 
-## Configuration before sharing
-
-Edit `src/data/portfolio.ts`:
-
-- `profile.employer`: replace `[Employer name]` with your employer’s approved public name.
-- `profile.email`: add your actual email address.
-- `profile.github` and `profile.linkedin`: add full HTTPS profile URLs. Empty or malformed URLs are not rendered.
-- `profile.resume`: add your real PDF in `public/resume/`, then set `/resume/janine-ubal-resume.pdf`. Until configured, the resume button is disabled and marked “Soon”. Verify that the configured file exists.
-- `profile.photo`: place your portrait in `public/images/` and set `/images/janine.jpg` (or your actual filename). A portrait-oriented image works best; it is cropped to a 4:5 area, aligned to the top, with soft fading edges and a blurred violet glow. Until configured, the hero shows an initials placeholder. The photo appears to the right on desktop and below the introduction on smaller screens.
-- `profile.openToOpportunities`: defaults to `false`; set `true` to show the optional badge.
-- Set `NEXT_PUBLIC_SITE_URL` to your actual HTTPS production origin. This enables canonical URLs and sitemap entries without inventing a domain. Rebuild after changing it.
-
-Contact details are deliberately blank. The contact section shows an unavailable state until the real email is configured. Do not publish personal details or employer information without reviewing them.
-
 ## Checks and production build
 
 ```sh
@@ -55,17 +41,5 @@ Illustrations use lightweight HTML/CSS and Lucide icons. They are explicitly lab
 ## Accessibility and responsive review
 
 Includes semantic landmarks, a skip link, visible focus styles, keyboard-operable mobile navigation (Escape closes it), active desktop section markers, reduced-motion support, and conditional links. Review at 320, 375, 768, 1024, and 1440px after content edits. Check keyboard navigation, mobile menu, case-study links, resume download, mailto links, and reduced-motion settings.
-
-## Deploy to Vercel
-
-Nothing is published automatically by this project.
-
-1. Create your personal GitHub repository and push this source (exclude `.env.local`, `node_modules`, and `.next`).
-2. In Vercel, choose **Add New Project**, import that repository, and select the Next.js preset.
-3. Use `npm run build` as the build command and the default Next.js output settings.
-4. Set `NEXT_PUBLIC_SITE_URL` to your assigned production HTTPS URL (or your custom domain) and deploy. If the URL is assigned on the first deploy, add it and redeploy.
-5. Verify all routes, social previews, sitemap, and configured personal links on production.
-
-To add a custom domain later, use the project’s **Settings → Domains**, enter your domain, and apply the DNS records Vercel provides at your registrar. Once verified, update `NEXT_PUBLIC_SITE_URL` to the preferred HTTPS domain and redeploy. Keep the alternate domain redirected to the preferred one.
 
 Framework references: [Next.js installation](https://nextjs.org/docs/app/getting-started/installation), [Motion for React](https://motion.dev/docs/react-installation).
